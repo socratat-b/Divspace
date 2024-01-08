@@ -1,0 +1,17 @@
+<script>
+	import { page } from '$app/stores';
+	import Navbar from '$lib/components/Navbar.svelte';
+</script>
+
+<Navbar>
+	{#if $page.url.pathname === '/signup'}
+		<p class="text-xs">
+			Already have an account? <a href="/login" class="text-blue-500 link">Login</a>
+		</p>
+	{:else}
+		<p class="text-xs">
+			Don't have an account? <a href="/signup" class="text-blue-500 link">Signup</a>
+		</p>
+	{/if}
+</Navbar>
+<slot />
