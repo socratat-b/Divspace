@@ -1,18 +1,28 @@
-<script>
+<script lang="ts">
+	import type { PageData } from './$types';
+	import { superForm } from 'sveltekit-superforms/client';
+	export let data;
+	const { form, enhance, errors } = superForm(data.form, {
+		autoFocusOnError: true
+	});
+
 	import Card from '$lib/components/Card.svelte';
 </script>
 
 <Card>
 	<svelte:fragment slot="card-title">Create your account</svelte:fragment>
-	<form slot="card-body" class="p-0 card-body">
+
+	<form slot="card-body" class="p-0 card-body" method="POST" use:enhance>
 		<div class="grid w-full grid-cols-2 gap-x-4 gap-y-4">
 			<div class="form-control">
 				<label for="" class="py-0 text-xs label">
 					<span>First Name</span>
 				</label>
 				<input
+					name="fName"
 					type="text"
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
+					aria-invalid={$errors.fName ? 'true' : undefined}
 				/>
 			</div>
 			<div class="form-control">
@@ -20,6 +30,7 @@
 					<span>Last Name</span>
 				</label>
 				<input
+					name="lName"
 					type="text"
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
 				/>
@@ -27,6 +38,7 @@
 
 			<div class="w-full max-w-[96] col-span-2 form-control">
 				<select
+					name="course"
 					class="p-0 px-2 border-black rounded select select-bordered select-xs focus:outline-none focus:border-black"
 				>
 					<option disabled selected>Course</option>
@@ -39,6 +51,7 @@
 
 			<div class="w-full max-w-[96] form-control">
 				<select
+					name="year"
 					class="p-0 px-2 border-black rounded select select-bordered select-xs focus:outline-none focus:border-black"
 				>
 					<option disabled selected>Year</option>
@@ -52,6 +65,7 @@
 
 			<div class="w-full max-w-[96] form-control">
 				<select
+					name="typeOfUser"
 					class="p-0 px-2 border-black rounded select select-bordered select-xs focus:outline-none focus:border-black"
 				>
 					<option disabled selected>Type of User</option>
@@ -67,6 +81,7 @@
 					<span>Email</span>
 				</label>
 				<input
+					name="email"
 					type="email"
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
 				/>
@@ -76,6 +91,7 @@
 					<span>Username</span>
 				</label>
 				<input
+					name="username"
 					type="text"
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
 				/>
@@ -85,6 +101,7 @@
 					<span>Password</span>
 				</label>
 				<input
+					name="password"
 					type="password"
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
 				/>
@@ -94,11 +111,12 @@
 					<span>Confirm Password</span>
 				</label>
 				<input
+					name="confirmPassword"
 					type="password"
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
 				/>
 			</div>
 		</div>
-		<button class="my-4 bg-blue-100 border border-black btn btn-sm">Sign up</button>
+		<button type="submit" class="my-4 bg-blue-100 border border-black btn btn-sm">Sign up</button>
 	</form>
 </Card>

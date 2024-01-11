@@ -16,8 +16,8 @@
 				Welcome to <span
 					class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-sky-500"
 					>Divspace</span
-				> , a social interaction platform where students, faculty members, and alumni come together to
-				forge meaningful connections and foster a dynamic learning environment.
+				> , a social interaction platform for students, faculty members, and alumni of Divine Word College
+				of Legazpi!
 			</p>
 			<button class="bg-blue-100 border border-black btn btn-sm item-center"
 				>Learn More
