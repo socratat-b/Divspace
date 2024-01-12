@@ -24,16 +24,24 @@
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
 					aria-invalid={$errors.fName ? 'true' : undefined}
 				/>
+
+				{#if $errors.fName}
+					<span class="text-[7px] text-red-600">{$errors.fName}</span>
+				{/if}
 			</div>
 			<div class="form-control">
 				<label for="" class="py-0 text-xs label">
 					<span>Last Name</span>
 				</label>
 				<input
+					aria-invalid={$errors.fName ? 'true' : undefined}
 					name="lName"
 					type="text"
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
 				/>
+				{#if $errors.lName}
+					<span class="text-[7px] text-red-600">{$errors.lName}</span>
+				{/if}
 			</div>
 
 			<div class="w-full max-w-[96] col-span-2 form-control">
@@ -47,6 +55,9 @@
 					<option class="text-xs">Bachelor of Science in Nursing</option>
 					<option class="text-xs">Bachelor of Science in Accounting</option>
 				</select>
+				{#if $errors.course}
+					<span class="text-[7px] text-red-600">{$errors.course}</span>
+				{/if}
 			</div>
 
 			<div class="w-full max-w-[96] form-control">
@@ -61,6 +72,9 @@
 					<option class="text-xs">Fourth Year</option>
 					<option class="text-xs">Overtime</option>
 				</select>
+				{#if $errors.year}
+					<span class="text-[7px] text-red-600">{$errors.year}</span>
+				{/if}
 			</div>
 
 			<div class="w-full max-w-[96] form-control">
@@ -74,6 +88,9 @@
 					<option class="text-xs">Staff</option>
 					<option class="text-xs">Alumni</option>
 				</select>
+				{#if $errors.typeOfUser}
+					<span class="text-[7px] text-red-600">{$errors.typeOfUser}</span>
+				{/if}
 			</div>
 
 			<div class="form-control">
@@ -85,6 +102,9 @@
 					type="email"
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
 				/>
+				{#if $errors.fName}
+					<span class="text-[7px] text-red-600">{$errors.fName}</span>
+				{/if}
 			</div>
 			<div class="form-control">
 				<label for="" class="py-0 text-xs label">
@@ -95,6 +115,9 @@
 					type="text"
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
 				/>
+				{#if $errors.fName}
+					<span class="text-[7px] text-red-600">{$errors.fName}</span>
+				{/if}
 			</div>
 			<div class="form-control">
 				<label for="" class="py-0 text-xs label">
@@ -105,6 +128,9 @@
 					type="password"
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
 				/>
+				{#if $errors.fName}
+					<span class="text-[7px] text-red-600">{$errors.fName}</span>
+				{/if}
 			</div>
 			<div class="form-control">
 				<label for="" class="py-0 text-xs label">
@@ -115,6 +141,9 @@
 					type="password"
 					class="border-black rounded input input-bordered input-xs focus:outline-none focus:border-black"
 				/>
+				{#if $errors.fName}
+					<span class="text-[7px] text-red-600">{$errors.fName}</span>
+				{/if}
 			</div>
 		</div>
 		<button type="submit" class="my-4 bg-blue-100 border border-black btn btn-sm">Sign up</button>
