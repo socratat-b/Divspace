@@ -4,15 +4,15 @@ import { z } from 'zod';
 import { superValidate } from 'sveltekit-superforms/server';
 
 const registerFormSchema = z.object({
-	fName: z.string().min(1),
-	lName: z.string().min(1),
-	course: z.string().min(12),
-	year: z.string().min(5),
-	typeOfUser: z.string().min(5),
+	fName: z.string().min(3),
+	lName: z.string().min(3),
+	course: z.string().default('Course'),
+	year: z.string().default('Year Level'),
+	typeOfUser: z.string().default('User Type'),
 	email: z.string().email(),
 	username: z.string().min(3).max(20),
-	password: z.string().min(8).max(14),
-	confirmPassword: z.string().min(8).max(14)
+	password: z.string().min(8).max(12),
+	confirmPassword: z.string().min(8).max(12)
 });
 
 export const load: PageServerLoad = async () => {
