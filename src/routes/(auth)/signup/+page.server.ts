@@ -1,7 +1,8 @@
-import { fail, redirect, type Actions } from '@sveltejs/kit';
+import { fail, type Actions } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { z } from 'zod';
-import { superValidate } from 'sveltekit-superforms/server';
+import { message, superValidate } from 'sveltekit-superforms/server';
+import { prisma } from '$lib/server/prisma';
 
 const registerFormSchema = z.object({
 	fName: z.string().min(3),
@@ -26,8 +27,16 @@ export const actions: Actions = {
 		if (!form.valid) {
 			console.log(form);
 			return fail(400, { form });
+		} else {
+			await prisma.user.create({
+				data: {
+					username: form.data.username,
+					email: form.data.email,
+					firstName: form.data.fName,
+					lastName: form.data.lName
+				}
+			});
+			return message(form, 'Successfully created');
 		}
-
-		throw redirect(303, '/login');
 	}
 };

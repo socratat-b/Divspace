@@ -2,7 +2,7 @@
 	import type { PageData } from './$types';
 	import { superForm } from 'sveltekit-superforms/client';
 	export let data;
-	const { form, enhance, errors, constraints } = superForm(data.form, {
+	const { form, enhance, errors, constraints, message } = superForm(data.form, {
 		validators: {
 			fName: (fName) => (fName.length < 3 ? 'Must be at least 3 characters' : ''),
 			lName: (lName) => (lName.length < 3 ? 'Must be at least 3 characters' : ''),
@@ -17,6 +17,9 @@
 	import Card from '$lib/components/Card.svelte';
 </script>
 
+{#if $message}
+	<p>{$message}</p>
+{/if}
 <Card>
 	<svelte:fragment slot="card-title">Create your account</svelte:fragment>
 
